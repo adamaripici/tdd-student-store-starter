@@ -1,0 +1,19 @@
+.product-name {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+img {
+    height: 250px;
+    width: 248px;
+}
+
+.product-card .product-price {
+    font-size: 14px;
+}
+.product-card .main-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 8px 12px;
+}

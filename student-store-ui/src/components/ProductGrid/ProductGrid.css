@@ -1,0 +1,5 @@
+.product-grid .content .grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
