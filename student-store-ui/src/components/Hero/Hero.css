@@ -7,7 +7,7 @@
 }
 .hero .content {
     background: #ACB992;
-    /* max-width: 800px; */
+    max-width: 800px; 
     width: 100%;
     margin: 0 auto;
     display: flex;

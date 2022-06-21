@@ -1,6 +1,6 @@
 import * as React from "react"
 import "./Navbar.css"
-import {Link} from 'react-router-dom'
+import {NavLink,Link} from 'react-router-dom'
 import Logo from '../Logo/Logo'
 
 export default function Navbar() {
@@ -23,7 +23,7 @@ export default function Navbar() {
             <Link to={"/#Contact"}>Contact Us</Link>
           </li>
           <li>
-            <Link to={"/#Buy"}>Buy Now </Link>
+            <NavLink to={"/#Buy"}>Buy Now </NavLink>
           </li>
         </ul>
         

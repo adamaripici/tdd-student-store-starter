@@ -1,0 +1,17 @@
+/* .sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90px; 
+    flex: 1;
+    transition: all .2s cubic-bezier(.215,.61,.355,1);
+    position: fixed;
+    z-index: 100;
+    top: 0px;
+    height: 100vh;
+    padding: 0;
+    overflow-y: scroll;
+    padding-bottom: 2rem;
+    background: #2c4047;
+    border-right: solid 1px white;
+}  */
