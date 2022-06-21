@@ -3,6 +3,10 @@ import "./Home.css"
 import Hero from "../Hero/Hero"
 import ProductGrid from "../ProductGrid/ProductGrid"
 import SubNavBar from "../SubNavBar/SubNavBar"
+import About from "../About/About"
+import Contact from "../Contact/Contact"
+import Footer from "../Footer/Footer"
+
 
 export default function Home({products, handleAddItemToCart, handleRemoveItemToCart, searchInput,handleSubmit}) {
   const [selectedCategory, setSelectedCategory] = React.useState("All Categories");
@@ -16,6 +20,9 @@ export default function Home({products, handleAddItemToCart, handleRemoveItemToC
       <SubNavBar key = {0} selectedCategory={selectedCategory} 
       setSelectedCategory={setSelectedCategory} searchInput={searchInput} handleSubmit={handleSubmit}/>
       <ProductGrid products={filterProducts}/>
+      <About></About>
+      <Contact></Contact>
+      <Footer></Footer>
     </div>
   )
 }
