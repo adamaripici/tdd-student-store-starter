@@ -1,5 +1,6 @@
 import * as React from "react"
 import "./Hero.css"
+import homeLogo from "/assets/student_store_icon.svg"
 
 export default function Hero() {
     return (
@@ -13,6 +14,9 @@ export default function Hero() {
               Click on any of the items to start filling up your 
               shopping cart. Checkout whenever you're ready.
             </p>
+          </div>
+          <div class="media">
+            <img src = {homeLogo} alt = "hero" class="hero-img"/>
           </div>
         </div>
       </div>

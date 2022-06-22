@@ -1,12 +1,12 @@
 .hero .content .intro h1 {
-    color: rgb(7, 7, 7);
+    color: rgb(255, 255, 255);
     font-size: 60px;
     font-weight: 600;
     margin: 0;
     padding: 0;
 }
 .hero .content {
-    background: #ACB992;
+    background: #00c385;
     max-width: 800px; 
     width: 100%;
     margin: 0 auto;
@@ -26,8 +26,13 @@
     height: 350px;
 }
 .hero .content .intro p {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 253, 253);
     font-size: 20px;
     margin-top: 10px;
     font-weight: 400;
+}
+.hero .content .media .hero-img {
+    width: 120px;
+    height: 120px;
+    margin: 0 105px 0 50px;
 }

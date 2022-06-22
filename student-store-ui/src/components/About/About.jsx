@@ -1,5 +1,6 @@
 import * as React from "react"
 import "./About.css"
+import giant_codepathLogo from "/assets/giant_codepath.svg"
 import {Link} from 'react-router-dom'
 
 export default function About() {
@@ -22,6 +23,9 @@ export default function About() {
                 All proceeds go towards bringing high quality CS education 
                 to college students around the country.  
                 </p>
+            </div>
+            <div class="media">
+              <img src = {giant_codepathLogo}/>
             </div>
             </div>
           </div>
