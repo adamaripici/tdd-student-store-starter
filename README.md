@@ -5,16 +5,17 @@
 Selling merchandise in the modern era requires digital solutions. For this project, you'll be tasked with designing and constructing an online student store for the College of Codepath. The application entails a frontend user interface for potential customers to peruse the goods, and a backend API to handle data management. The API will be built with Node and Express and the UI will be built with React.
 
 // Include your gif here
+![ezgif com-gif-maker (13)](https://user-images.githubusercontent.com/55006272/174714137-143e4d47-a381-4e72-bd19-18efa690b4e4.gif)
 
 ### Application Features
 
 #### Core Features
 
-- [ ] Displays the following sections: header, banner, search, product grid, about, contact, and footer.
-- [ ] On initial page load, display the products at the [GET /store endpoint](https://codepath-store-api.herokuapp.com/store).
-- [ ] User can click on the categories (Clothing, food, etc) to filter the product grid by type.
-- [ ] User can search for products.
-- [ ] User can click on a product in the grid to view additional product details. Navigation is via a React Router.
+- [ X] Displays the following sections: header, banner, search, product grid, about, contact, and footer.
+- [ X] On initial page load, display the products at the [GET /store endpoint](https://codepath-store-api.herokuapp.com/store).
+- [X ] User can click on the categories (Clothing, food, etc) to filter the product grid by type.
+- [X ] User can search for products.
+- [ X] User can click on a product in the grid to view additional product details. Navigation is via a React Router.
 - [ ] User can click to expand the shopping cart in the left navigation.
 - [ ] User can click the '+' button on a product cart to increment that product in the shopping cart.
 - [ ] User can click the '-' button on a product cart to increment that product in the shopping cart.
@@ -278,3 +279,22 @@ The following specifications were met on the Express backend and the React front
         - **optional**:
           - [ ] `receipt` - text describing the order (what might go on a receipt)
       - [ ] It should then send a JSON response back to the client with the new purchase like so: `{ "purchase": purchase }`. The response should have a `201` status code for a resource created action.
+Reflection
+Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
+Somewhat- I didn't fully feel prepared to implement the axios and the category section for the project but with the labs I felt more comfortable using REACT.
+
+If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
+
+
+I would start implementing the cart, fix my footer and add more to my CSS.
+
+Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
+
+
+I think my search and categories went well. I noticed some of my peers added a shopping cart which is something I would like to do.
+
+
+Open-source libraries used
+Add any links to open-source libraries used in your project.
+Shout out
+Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
