@@ -7,21 +7,85 @@ import "./App.css"
 import ProductDetail from "../ProductDetail/ProductDetail";
 import NotFound from "../NotFound/NotFound";
 import axios from 'axios';
+import ShoppingCart from "../ShoppingCart/ShoppingCart";
 
 export default function App() {
   // products
   const [products, setProducts] = React.useState([]); //array of product objects
   const [isFetching, setFetching] = React.useState(false); //app is fetching products from api
   const [error, setError] = React.useState(0); //something wrong with the api requests
-  const [isOpen, setOpen] = React.useState(false); //whether sidebar.jsx is in the open or closed state
-  const [shoppingCart, setShoppingCart] = React.useState([]); //
+  const [shoppingCart, setShoppingCart] = React.useState([]); //store state for the active user's shopping cart
   const [searchInput, setSearchInput] = React.useState("");
+  const [checkoutForm, setCheckoutForm] = React.useState(); //the user's information that will be sent to the API when they checkout.
   const { productId } = useParams();
 
   const handleSubmit = (event) => {
     setSearchInput(event.target.value);
     console.log(8,event.target.value);
   }
+  const addItemToCart = (productId) => {
+    let newCartProduct = {
+      itemId: productId,
+      quantity: 1
+    }
+    setShoppingCart(state=>[...state,newCartProduct]) //append an element to an array stored in our component state 
+    
+  }
+
+  const updateItem = (productId) => {
+    console.log("update this item!")
+    let copyShoppingCart = [...shoppingCart]
+    let index = copyShoppingCart.findIndex(e => e.itemId == productId)
+    copyShoppingCart[index].quantity +=1;
+    setShoppingCart(copyShoppingCart)
+  }
+
+  const removeItem = (productId) => {
+    let copyShoppingCart = [...shoppingCart]
+    let index = copyShoppingCart.findIndex(e => e.itemId == productId)
+    copyShoppingCart[index].quantity -=1;
+    console.log("index",index)
+    console.log("quantity",copyShoppingCart[index].quantity)
+    setShoppingCart(copyShoppingCart)
+    
+  }
+
+  const handleRemoveItemFromCart = (productId) => {
+    shoppingCart.map((item,index) => {
+      if (item.itemId == productId) {
+        if (shoppingCart[index].quantity > 1) {
+          removeItem(productId)   
+        } else {
+          console.log("remove item from cart!")
+          let copyShoppingCart = [...shoppingCart]
+          copyShoppingCart.splice(index,1)
+          setShoppingCart(copyShoppingCart)
+        }
+      } 
+    })
+    console.log("shopping cart!!",shoppingCart)
+  }
+
+  const handleAddItemToCart = (productId) => {
+    // if theres nothing in the shopping cart add item to cart with the properties
+    // else loop through the sho
+    console.log("length :",shoppingCart.length)
+      if (shoppingCart.length == 0) {
+        addItemToCart(productId)
+      }
+  
+      shoppingCart.map((item, index) => {
+      if (item.itemId == productId) {
+        updateItem(productId)
+      } else if (index == shoppingCart.length-1) {
+        console.log("new item ",index)
+        addItemToCart(productId)
+      }
+      // item.itemId == productId ? updateItem(productId) : (index == shoppingCart.length - 1 ? addItemToCart(productId) :null)
+    })
+  
+  console.log("shopping cart",shoppingCart)
+  };
 
   // function productPage() {
   //   // Get the userId param from the URL.
@@ -33,7 +97,8 @@ export default function App() {
     const loadProducts = async () => {
       setFetching(true)
       try {
-        const response = await axios.get('https://codepath-store-api.herokuapp.com/store');
+        const response = await axios.get('http://localhost:3001/store');
+        console.log("axios:",response)
         if (response.data.products) {
           setProducts(response.data.products);
         } else {
@@ -54,7 +119,16 @@ export default function App() {
       <BrowserRouter>
         <main>
           <Navbar products={products}/>
-          <Sidebar />
+          <Sidebar 
+            shoppingCart={shoppingCart} 
+            products={products} 
+            checkoutForm={checkoutForm} 
+            // handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm} 
+            // handleOnToggle={handleOnToggle} 
+            // checkoutForm={checkoutForm} 
+            // handleOnCheckoutFormChange={handleOnCheckoutFormChange} 
+            // handleOnToggle={handleOnToggle}
+          />
           <Routes>
             <Route path ="/" element={
               <Home 
@@ -63,6 +137,9 @@ export default function App() {
                 setSearchInput={setSearchInput}
                 setProducts={setProducts}
                 handleSubmit={handleSubmit}
+                handleAddItemToCart={handleAddItemToCart}
+                handleRemoveItemFromCart={handleRemoveItemFromCart}
+                shoppingCart={shoppingCart}
                 />
             }/>
             <Route path ='/products/:productId' element={

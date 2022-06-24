@@ -8,7 +8,7 @@ import Contact from "../Contact/Contact"
 import Footer from "../Footer/Footer"
 
 
-export default function Home({products, handleAddItemToCart, handleRemoveItemToCart, searchInput,handleSubmit}) {
+export default function Home({products, handleAddItemToCart, handleRemoveItemFromCart, searchInput,handleSubmit,shoppingCart}) {
   const [selectedCategory, setSelectedCategory] = React.useState("All Categories");
     
   const productFilterCat = selectedCategory.toLowerCase() !== "all categories" ? products.filter((prod)=>prod.category===selectedCategory.toLowerCase()):products;
@@ -19,7 +19,7 @@ export default function Home({products, handleAddItemToCart, handleRemoveItemToC
       <Hero/>
       <SubNavBar key = {0} selectedCategory={selectedCategory} 
       setSelectedCategory={setSelectedCategory} searchInput={searchInput} handleSubmit={handleSubmit}/>
-      <ProductGrid products={filterProducts}/>
+      <ProductGrid products={filterProducts} handleAddItemToCart={handleAddItemToCart} shoppingCart={shoppingCart} handleRemoveItemFromCart={handleRemoveItemFromCart}/>
       <About></About>
       <Contact></Contact>
       <Footer></Footer>

@@ -17,7 +17,7 @@ export default function Navbar() {
           <Link to={"/#Home"}>Home</Link>
           </li>
           <li>
-            <Link to={"/#About"}>About Us</Link>
+            <Link to={"/#about"}>About Us</Link>
           </li>
           <li>
             <Link to={"/#Contact"}>Contact Us</Link>
