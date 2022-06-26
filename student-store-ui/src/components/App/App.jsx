@@ -18,7 +18,26 @@ export default function App() {
   const [searchInput, setSearchInput] = React.useState("");
   const [checkoutForm, setCheckoutForm] = React.useState(); //the user's information that will be sent to the API when they checkout.
   const { productId } = useParams();
+  const [success, setSuccess] = React.useState(false)
+  const [receipt, setReceipt] = React.useState({})
 
+  const handleOnCheckoutFormChange = (name,value) => {
+    setCheckoutForm({...checkoutForm,[name]: value });
+  }
+
+  async function handleOnSubmitCheckoutForm() {
+    setSuccess(true)
+    axios.post("http://localhost:3001/store/", {user:checkoutForm, shoppingCart:shoppingCart})
+    .then((res)=> {
+      setShoppingCart([])
+      setCheckoutForm({name:"", email:""})
+      
+    })
+    .catch((err)=> {
+      setError(err)
+      // setSucess(false)
+    })
+  }
   const handleSubmit = (event) => {
     setSearchInput(event.target.value);
     console.log(8,event.target.value);
@@ -123,10 +142,12 @@ export default function App() {
             shoppingCart={shoppingCart} 
             products={products} 
             checkoutForm={checkoutForm} 
-            // handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm} 
+            handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm} 
             // handleOnToggle={handleOnToggle} 
             // checkoutForm={checkoutForm} 
-            // handleOnCheckoutFormChange={handleOnCheckoutFormChange} 
+            handleOnCheckoutFormChange={handleOnCheckoutFormChange} 
+            success={success}
+            setSuccess={setSuccess}
             // handleOnToggle={handleOnToggle}
           />
           <Routes>

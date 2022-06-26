@@ -82,11 +82,11 @@ export default function ShoppingCart(props) {
             </label>
           </div>
         </div>
-        <div className="field">
+        {/* <div className="field">
           <div className="control">
             <button className="button checkout-button">Checkout</button>
           </div>
-        </div>
+        </div> */}
       </div>
     )
   } else {

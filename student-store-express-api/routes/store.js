@@ -26,7 +26,7 @@ router.post("/",async (req,res,next) => {
     try {
         const user = req.body.user
         const shoppingCart = req.body.shoppingCart
-        const purchase = await Store.createPurchase(user, shoppingCart)
+        const purchase = await Store.createPurchase(shoppingCart, user)
         res.status(201).json({ purchase })
     } catch (err) {
         next(err)
